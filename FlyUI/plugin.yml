@@ -1,0 +1,13 @@
+name: FlyUI
+main: TitaniumLB\FlyUI\Fly
+author: TitaniumLB
+api: [3.0.0, 4.0.0]
+version: 1
+
+commands:
+  fly:
+    description: "Enable/disable flight"
+    permission: "flyui.use"
+
+  flyui:
+    description: "Plugin Info"
