@@ -13,21 +13,33 @@ namespace TitaniumLB\FlyUI;
 use jojoe77777\FormAPI\SimpleForm;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
+use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\Listener;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\Server;
+use pocketmine\utils\Config;
 
 class Fly extends PluginBase implements Listener
 {
+
     public function onLoad() : void
     {
         $this->getLogger()->info("Loading FlyUI");
     }
 
+    /** @var Config */
+    public $myConfig;
+
     public function onEnable() : void
     {
         $this->getLogger()->info("FlyUI Enabled");
+        $this->getServer()->getPluginManager()->registerEvents($this, $this);
+
+        @mkdir($this->getDataFolder());
+        $this->saveResource("config.yml");
+        $this->myConfig = new Config($this->getDataFolder() . "config.yml", Config::YAML);
     }
 
     public function onDisable() : void
@@ -42,6 +54,10 @@ class Fly extends PluginBase implements Listener
         		$sender->sendMessage("§8----------------------------------\n§8»§6This plugin was made by TitaniumLB\n§8»§6Subscribe to my YT channel ;D\n§8----------------------------------");
         		break;
             case "fly":
+                if (!$sender instanceof Player) {
+                    $sender->sendMessage("You are only allowed to use this command in-game!.");
+                    return false;
+                }
                 if ($sender instanceof Player) {
                     if ($sender->hasPermission("flyui.use")) {
                         $this->openMyForm($sender);
@@ -82,4 +98,23 @@ class Fly extends PluginBase implements Listener
         $form->sendToPlayer($player);
         return $form;
     }
+
+	public function onDamage(EntityDamageByEntityEvent $event) : void{
+
+		$entity = $event->getEntity();
+		if($this->getConfig()->get("onDamage-FlyReset") === true){
+			if($event instanceof EntityDamageByEntityEvent){
+				if($entity instanceof Player){
+					$damager = $event->getDamager();
+					if(!$damager instanceof Player) return;
+					if($damager->isCreative()) return;
+					if($damager->getAllowFlight() === true){
+						$damager->sendMessage($this->getConfig()->get("fly-in-combat-message"));
+						$damager->setAllowFlight(false);
+						$damager->setFlying(false);
+					}
+				}
+			}
+		}
+	}
 }
