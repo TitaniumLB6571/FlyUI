@@ -5,4 +5,5 @@ branches:
 projects:
   TitanFly:
     path: TitanFly/
+    icon: icon.png
 ...
