@@ -1,4 +1,3 @@
-# FlyUI
-This is a simple fly plugin for any survival/server.
-
-Subscribe to my YT channel :D
+# TitanFly
+This plugin is still in development so meaning it's experimental.
+##Recommend not to use yet.

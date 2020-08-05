@@ -1,8 +1,0 @@
-#----------------------#
-## Flight Settings ##
-#----------------------#
-
-## By changing this value you can enable/disable flight when the player takes damage.
-onDamage-FlyReset: true
-#This is the message that the player will receive when pvp tagged.
-fly-in-combat-message: "§cFly§8» You cannot fly while tagged in pvp!"

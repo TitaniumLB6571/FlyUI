@@ -1,0 +1,113 @@
+#DO NOT CHANGE THIS UNLESS YOU KNOW WHAT YOU ARE DOING!!!
+config-version: 1
+
+
+# Use the following if color is being added in messages.
+
+
+#################################
+  #COLOR CODES
+  #
+  # §0 = black
+  # §1 = dark_blue
+  # §2 = ark_green
+  # §3 = dark_aqua
+  # §4 = dark_red
+  # §5 = dark_purple
+  # §6 = gold
+  # §7 = gray
+  # §8 = dark_gray
+  # §9 = blue
+  # §a = green
+  # §b = aqua
+  # §c = red
+  # §d = light_purple
+  # §e = yellow
+  # §f = white
+
+
+  #FORMATTING CODES
+  # §k = Obfuscated
+  # §l = Bold
+  # §o = Italic
+  # §r = Reset
+  #
+#################################
+
+
+
+#---------------------#
+ ## Flight Settings ##
+#---------------------#
+#This is a prefix that will be shown before every message.
+prefix: "§aFlyUI§8»§a" #leave "" for no prefix.
+
+
+#Enable UI for flight or disable UI.
+flyUI-enable: true #(set to 'false' to disable UI)
+
+#Enter your Title for the TitanFly menu here.
+title: "Your Title Here"
+
+#Enter description message here.
+description: "Description for your players goes here"
+
+#Button messages
+button1: "Button1 Message" #(Usually Enabled)
+button2: "Button1 Message" #(Usually Disabled)
+
+
+#---------------------#
+ ## Flight Features ##
+#---------------------#
+
+#Enter your message here when flight is enabled or disabled.
+fly-enabled-message: "Fly enable message here"
+fly-disabled-message: "Fly disabled message here"
+
+
+# By changing this value you can enable/disable flight when the player takes damage.
+disable-fly-when-combat-tagged: true
+
+
+#This is the message that the player will receive when pvp/combat tagged (Will only work if "disable-fly-when-combat-tagged' is set to 'true').
+fly-in-combat-message: "Fly in combat message here"
+
+
+#Set your very own permission message.
+no-permission: "No permission message goes here"
+
+#Disable fly when a player joins.
+onjoin-disable-fly: true  #(set 'false' to keep fly enabled when joining)
+
+#Message when joining on if 'onjoin-disable-fly' is set to 'true'.
+onjoin-disable-fly-message: "Flight disabled message here"
+
+
+#If using 'fly.use.command' permission player will not be using the UI version and just the normal /fly.
+
+#Message for specified player not found.
+Player-Not-Found: "Player not found"
+
+
+#This is for when someone has 'fly.use.command' permission to send the target player a enabled-flight message.
+#This send a message to the target player from who it was enabled by. Use {perm_user} to get the player with the 'fly.use.command' permissions' name.
+Flight-Enabled-By: "Flight enabled by {perm_user}"
+#Now this is just to disabled it.
+Flight-Disabled-By: "Flight disabled by {perm_user}"
+
+
+#Choose whether you want the player to disable flight after death
+disable-fly-on-death: true
+#This sends a message to the player when he/she dies.
+#To disable flight.
+flight-disabled-cause-death:
+
+#Ban a command when player is in flight mode.
+banned-commands:
+- tp
+- gamemode
+- kill
+#Sends message if player executes a command that's banned.
+messages:
+  player-run-banned-command: "You cannot execute this command whilst in flight mode!"

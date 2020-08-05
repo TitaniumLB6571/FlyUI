@@ -1,8 +1,8 @@
---- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/TitaniumLB6571/FlyUI
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/TitaniumLB6571/TitanFly
 build-by-default: true
 branches:
 - master
 projects:
-  FlyUI:
-    path: FlyUI/
+  TitanFly:
+    path: TitanFly/
 ...

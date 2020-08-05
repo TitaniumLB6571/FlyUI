@@ -1,0 +1,16 @@
+name: TitanFly
+main: TitaniumLB\TitanFly\Fly
+author: TitaniumLB
+api: [3.0.0, 4.0.0]
+version: 1.0.2
+
+commands:
+  fly:
+    description: "Enable/Disable flight for yourself using UI"
+    permission: "flyui.use"
+
+
+permissions:
+  fly.use.command:
+    description: "enable fly for others without using the UI"
+    default: op
